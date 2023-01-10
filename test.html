@@ -1,0 +1,920 @@
+<html>
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+    <style>
+        body{
+            margin: 0 !important;
+            padding:  0 !important;
+        }
+        @page{
+             
+             @bottom-right{
+                 content: "رقم الصفحة :" counter(page) "/" counter(pages);
+             }
+             
+         }
+      .pagedjs_margin-content::after{
+        display: block;
+        margin-top: -50px;
+        z-index: 1000000000000000000;
+      }
+
+        .page-header {
+            padding-bottom: 0px !important;
+            margin: 0px 0px 0px 0px !important;
+        }
+
+        .sh {
+            position: relative;
+            top: -55px;
+            direction: rtl;
+            float: left;
+            padding: 1px 45px;
+            font-weight: 900;
+        }
+
+      
+       
+        .snd-table-color-eee td {
+            border: 2px solid #00001178;
+            color: #a7a2a2;
+        }
+
+        .border-head {
+            background: #bdbdb8;
+            /* height: 46px; */
+            padding: 25px 0px;
+            text-align: center;
+            border: 2px solid #00001178;
+            color: black;
+            font-weight: 800;
+            border-radius: 7px;
+            margin: -2px 0px 2px -3px;
+            font-size: 14px;
+        }
+  
+        .page{
+            page-break-after: always;
+            margin-top: -30px !important;
+        }
+ 
+
+        @media print {
+           
+            thead {
+                display: table-header-group;
+            }
+            tfoot {
+                display: table-footer-group;
+            }
+            .page-header,
+            .page-header-space {
+                height: auto;
+            }
+            .page-footer,
+            .page-footer-space {
+                height: auto;
+            }
+            .page-footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                
+                
+            }
+            .page-header {
+                position: fixed;
+                top: 0;
+                width: 100%;
+            }
+
+            /* .page{
+                
+                page-break-after: always;
+            } */
+           
+            .snd-table-color-eee td {
+                border: 0.25pt solid #0a0a0a !important;
+                color: #000;
+                margin: 1px !important;
+            }
+
+            .edu-favorit-arabic-light {
+                text-align: right !important;
+            }
+             /* .break{
+            page-break-after: always;
+            
+        } */
+        /* .page{
+counter-reset: page;
+}
+.page .pagenumber{
+  display:block;
+
+  }
+           .pagenumber::after {
+            position: relative;
+            top: 15px;
+            direction: rtl;
+            float: right;
+            padding: 0px 45px;
+            font-weight: 900;
+            counter-increment: page;
+            content: "رقم الصفحة : " counter(page) "/" counter(pages);
+        }
+
+        .pagenumber:after {
+            content: "رقم الصفحة : " counter(page) "/" counter(pages);
+            
+
+        } */
+   
+        
+        }
+
+ /* .page{
+counter-reset: page ;
+margin-top: -30px !important;
+}
+.page .break{
+  display:block;
+
+  }
+  .page::after, .break::after{
+            position: relative;
+            bottom:0;
+            right:0;
+            width:100%;
+            direction: rtl;
+            float: right;
+            padding: 0px 45px;
+            font-weight: 900;
+            counter-increment: page;
+            content: "رقم الصفحة : " counter(page) ;
+} */
+
+        
+    </style>
+
+    <head>
+
+    <body>
+        
+        <!-- header -->
+        <div class="page-header" style="text-align: center;width:100%">
+            <div style="text-align: left;">
+                <img alt="SND Letter Head" height="" src="PF Print assets/Header.png" style="width:100%">
+            </div>
+            <table class=" sh " width="40%">
+                <tbody>
+                    <tr>
+                        <td>رقم العقد:2670</td>
+                        <td>2022/11/27</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- footer -->
+        <div class="page-footer" style="text-align: center;width:100%">
+            <table class="pagenumber" width="40%">
+                <tbody>
+                    <tr class="pagenumber">
+                        <td width="33%"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="text-align: left; width:100%">
+                <img alt="SND Letter Head" height="" src="PF Print assets/Footer.png" style="width:100%">
+            </div>
+        </div>
+        <!-- content -->
+
+        <div class="page" style="padding: 0px 40px;">
+            <table  border=0 width=100%>
+                <thead>
+                    <tr>
+                        <td style="border-style: hidden;"><br><br></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <!--place holder for the fixed-position header-->
+                            <div class="page-header-space"><br></div>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border-bottom: 0pt solid #000 !important;">
+                            <!--*** CONTENT GOES HERE ***-->
+                            <div>
+                                <div class="row break " dir="rtl"
+                                    style="line-height: 17pt; font-size: 12px; font-weight: 550; line-height: 12pt;">
+                                    <div class="col-sx-12 " style="position: relative;">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td width="15%">رقم العقد</td>
+                                                    <td>2670</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="10%">بتاريخ:</td>
+                                                    <td width="20%">1444/05/03</td>
+                                                    <td width="10%">الموافق:</td>
+                                                    <td width="20%">2022/11/27</td>
+                                                    <td width="33%">تم الاجتماع والاتفاق بين كلا من الطرق:</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <br>
+                                        <table width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding-right:12px !important"><b>الطرف الاول:
+                                                        شركة مجال الوقاية للاستشارات</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>سجل تجاري رقم: 1010562271 رقم العضوية الغرفة التجارية: 372651
+                                                        صنوق
+                                                        البريد: 13216 الرمز البريدي : 4614
+                                                        العنوان الرياض - حي الحمراء الشارع خالد بن الوليد
+                                                        رقم رخصة خدمة المسح الإشعاعي المكاني م ش 4 12-1F201862- الصادرة
+                                                        من هيئة
+                                                        الرقابة النووية والإشعاعي
+                                                        رقم رخصة الجودة والنوعية للأجهزة الطبية مش ك 10-21201859 -
+                                                        الصادرة من
+                                                        هيئة الرقابة النووية والإشعاعية
+                                                        رقم رخصة خدمة قراءة الجرعات الشخصية في جرش 13-1FC2018600 -
+                                                        الصادرة من
+                                                        هيئة الرقابة النووية والإسماعية
+                                                        رقم رخصة الغذاء والدواء لتوكيد الجودة النوعية الأجهزة الأشعة
+                                                        الطبية
+                                                        والمسح الاشعاعي العرف الجرعة الشخصية الإشعاعية 255 / 27555
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <br>
+                                        <table width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding-right:12px !important"><b>الطرف الثاني:
+                                                            {{doc.customer}}</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="25%">ترخيص وزارة الصحة</td>
+                                                    <td width="25%">تاريخ الانتهاء</td>
+                                                    <td width="25%">سجل تجاري رقم</td>
+                                                    <td width="25%">المدينة</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>الهاتف</td>
+                                                    <td>العنوان</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>البريد الإلكتروني</td>
+                                                    <td></td>
+                                                    <td>ممثل العقد/ ......................</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <br>
+                                        <table width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="text-align: center"><b>تمهيد</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>حيث أن الطرف الأول شركة متخصصة التقديم خدمات العمالية من الإشعاع
+                                                        ومجال
+                                                        الفيزياء الطبية والحاجة الطرف الثاني لخدمات الطرف الأول في
+                                                        أعمال الفحص الفزيتي الجودة والنوعية لأجهزة الأشعة واختبارات
+                                                        الحماية
+                                                        من الإشعاع المطلوبة والمذكورة في الجول أثناء مرة واحدة سنوياً،
+                                                        وحيث
+                                                        استعد الطرف الأول للقيام بهذه الخدمات وافق عليه الطرف الثاني فقد
+                                                        توافقت إرادة الطرفين وهما بكامل أهليتهما المعتبرة شرعا ونظاماً
+                                                        على
+                                                        مايلي:
+                                                        <br><br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>اولاً:</b> يعتبر التمهيد جزء لا يتجزأ من هذا العقد يقرأ ويفسر
+                                                        معه.
+                                                        <br><br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>ثانياً:</b> الخدمات المقدمة والمتفق عليها في العقد:</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                  
+                                </div>
+                            
+                                    <table width='100%' border=0 dir="rtl" style="position: relative; "
+                                        class="snd-table-color-eee">
+                                        <thead>
+                                            <tr style=" border-top: 0.25pt solid #eee !important;">
+                                                <th
+                                                    style="border-style: hidden; line-height: 18px; width:3%; border-bottom: 0.25pt solid #000 !important;">
+                                                    <div class="border-head" style=" border-radius: 4px;">#</div>
+                                                </th>
+                                                <th
+                                                    style="border-style: hidden; line-height: 18px; width: 45%; border-bottom: 0.25pt solid #000 !important;">
+                                                    <div class="border-head">نوع الخدمة</div>
+                                                </th>
+                                                <th
+                                                    style="width: 7%;border-style: hidden; line-height: 18px; border-bottom: 0.25pt solid #000 !important; ">
+                                                    <div class="border-head"> الكمية </div>
+                                                </th>
+                                                <th
+                                                    style="border-style: hidden; line-height: 18px; width: 45%; border-bottom: 0.25pt solid #000 !important; ">
+                                                    <div class="border-head"> نوع الجهاز </div>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr>
+                                                <td
+                                                    style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
+                                                    1</td>
+                                                <td>الفحص الفيزيائي للجودة والنوعية</td>
+                                                <td style="text-align: center; color:black !important;">1</td>
+                                                <td class="edu-favorit-arabic-light"
+                                                    style="text-align: center; color:black !important;">جهاز الاشعة
+                                                    السينية
+                                                    الرئيسي<br>General X- Ray Machine</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
+                                                    2</td>
+                                                <td>الفحص الفيزيائي للجودة والنوعية</td>
+                                                <td style="text-align: center; color:black !important;">1</td>
+                                                <td class="edu-favorit-arabic-light"
+                                                    style="text-align: center; color:black !important;">جهاز الاشعة
+                                                    السينية
+                                                    الرئيسي<br>General X- Ray Machine</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
+                                                    3</td>
+                                                <td>الفحص الفيزيائي للجودة والنوعية</td>
+                                                <td style="text-align: center; color:black !important;">1</td>
+                                                <td class="edu-favorit-arabic-light"
+                                                    style="text-align: center; color:black !important;">جهاز الاشعة
+                                                    السينية
+                                                    الرئيسي<br>General X- Ray Machine</td>
+                                            </tr>
+                                        
+                                            <tr>
+                                                
+                                                <td 
+                                                    style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
+                                                    4</td>
+                                                <td>الفحص الفيزيائي للجودة والنوعية</td>
+                                                <td style="text-align: center; color:black !important;">1</td>
+                                                <td class="edu-favorit-arabic-light"
+                                                    style="text-align: center; color:black !important;">جهاز الاشعة
+                                                    السينية
+                                                    الرئيسي<br>General X- Ray Machine</td>
+                                            </tr>
+                                         
+                                            <tr>
+                                                <td
+                                                    style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
+                                                    5</td>
+                                                <td>الفحص الفيزيائي للجودة والنوعية</td>
+                                                <td style="text-align: center; color:black !important;">1</td>
+                                                <td class="edu-favorit-arabic-light"
+                                                    style="text-align: center; color:black !important;">جهاز الاشعة
+                                                    السينية
+                                                    الرئيسي<br>General X- Ray Machine</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
+                                                    6</td>
+                                                <td>الفحص الفيزيائي للجودة والنوعية</td>
+                                                <td style="text-align: center; color:black !important;">1</td>
+                                                <td class="edu-favorit-arabic-light"
+                                                    style="text-align: center; color:black !important;">جهاز الاشعة
+                                                    السينية
+                                                    الرئيسي<br>General X- Ray Machine</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
+                                                    7</td>
+                                                <td>الفحص الفيزيائي للجودة والنوعية</td>
+                                                <td style="text-align: center; color:black !important;">1</td>
+                                                <td class="edu-favorit-arabic-light"
+                                                    style="text-align: center; color:black !important;">جهاز الاشعة
+                                                    السينية
+                                                    الرئيسي<br>General X- Ray Machine</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
+                                                    8</td>
+                                                <td>الفحص الفيزيائي للجودة والنوعية</td>
+                                                <td style="text-align: center; color:black !important;">1</td>
+                                                <td class="edu-favorit-arabic-light"
+                                                    style="text-align: center; color:black !important;">جهاز الاشعة
+                                                    السينية
+                                                    الرئيسي<br>General X- Ray Machine</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
+                                                    9</td>
+                                                <td>الفحص الفيزيائي للجودة والنوعية</td>
+                                                <td style="text-align: center; color:black !important;">1</td>
+                                                <td class="edu-favorit-arabic-light"
+                                                    style="text-align: center; color:black !important;">جهاز الاشعة
+                                                    السينية
+                                                    الرئيسي<br>General X- Ray Machine</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
+                                                    10</td>
+                                                <td>الفحص الفيزيائي للجودة والنوعية</td>
+                                                <td style="text-align: center; color:black !important;">1</td>
+                                                <td class="edu-favorit-arabic-light"
+                                                    style="text-align: center; color:black !important;">جهاز الاشعة
+                                                    السينية
+                                                    الرئيسي<br>General X- Ray Machine</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
+                                                    11</td>
+                                                <td>الفحص الفيزيائي للجودة والنوعية</td>
+                                                <td style="text-align: center; color:black !important;">1</td>
+                                                <td class="edu-favorit-arabic-light"
+                                                    style="text-align: center; color:black !important;">جهاز الاشعة
+                                                    السينية
+                                                    الرئيسي<br>General X- Ray Machine</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
+                                                    12</td>
+                                                <td>الفحص الفيزيائي للجودة والنوعية</td>
+                                                <td style="text-align: center; color:black !important;">1</td>
+                                                <td class="edu-favorit-arabic-light"
+                                                    style="text-align: center; color:black !important;">جهاز الاشعة
+                                                    السينية
+                                                    الرئيسي<br>General X- Ray Machine</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
+                                                    13</td>
+                                                <td>الفحص الفيزيائي للجودة والنوعية</td>
+                                                <td style="text-align: center; color:black !important;">1</td>
+                                                <td class="edu-favorit-arabic-light"
+                                                    style="text-align: center; color:black !important;">جهاز الاشعة
+                                                    السينية
+                                                    الرئيسي<br>General X- Ray Machine</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
+                                                    14</td>
+                                                <td>الفحص الفيزيائي للجودة والنوعية</td>
+                                                <td style="text-align: center; color:black !important;">1</td>
+                                                <td class="edu-favorit-arabic-light"
+                                                    style="text-align: center; color:black !important;">جهاز الاشعة
+                                                    السينية
+                                                    الرئيسي<br>General X- Ray Machine</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
+                                                    15</td>
+                                                <td>الفحص الفيزيائي للجودة والنوعية</td>
+                                                <td style="text-align: center; color:black !important;">1</td>
+                                                <td class="edu-favorit-arabic-light"
+                                                    style="text-align: center; color:black !important;">جهاز الاشعة
+                                                    السينية
+                                                    الرئيسي<br>General X- Ray Machine</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
+                                                    16</td>
+                                                <td>الفحص الفيزيائي للجودة والنوعية</td>
+                                                <td style="text-align: center; color:black !important;">1</td>
+                                                <td class="edu-favorit-arabic-light"
+                                                    style="text-align: center; color:black !important;">جهاز الاشعة
+                                                    السينية
+                                                    الرئيسي<br>General X- Ray Machine</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
+                                                    17</td>
+                                                <td>الفحص الفيزيائي للجودة والنوعية</td>
+                                                <td style="text-align: center; color:black !important;">1</td>
+                                                <td class="edu-favorit-arabic-light"
+                                                    style="text-align: center; color:black !important;">جهاز الاشعة
+                                                    السينية
+                                                    الرئيسي<br>General X- Ray Machine</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
+                                                    18</td>
+                                                <td>الفحص الفيزيائي للجودة والنوعية</td>
+                                                <td style="text-align: center; color:black !important;">1</td>
+                                                <td class="edu-favorit-arabic-light"
+                                                    style="text-align: center; color:black !important;">جهاز الاشعة
+                                                    السينية
+                                                    الرئيسي<br>General X- Ray Machine</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
+                                                    19</td>
+                                                <td>الفحص الفيزيائي للجودة والنوعية</td>
+                                                <td style="text-align: center; color:black !important;">1</td>
+                                                <td class="edu-favorit-arabic-light"
+                                                    style="text-align: center; color:black !important;">جهاز الاشعة
+                                                    السينية
+                                                    الرئيسي<br>General X- Ray Machine</td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
+                                                    20</td>
+                                                <td>الفحص الفيزيائي للجودة والنوعية</td>
+                                                <td style="text-align: center; color:black !important;">1</td>
+                                                <td class="edu-favorit-arabic-light"
+                                                    style="text-align: center; color:black !important;">جهاز الاشعة
+                                                    السينية
+                                                    الرئيسي<br>General X- Ray Machine</td>
+                                            </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                <div class="break">
+                                    <table width="100%" dir="rtl">
+                                        <tbody>
+                                            <tr>
+                                                <td><b>ثالثاً:</b> وصف العمل:</td>
+                                            </tr>
+                                            <tr>
+                                                <td>يقوم الطرف الأول بالقيام بالأعمال المذكورة أعلاه وفقاً للمواصفات
+                                                    الواردة حسب
+                                                    طلب الجهة المختصة.
+                                                    <br>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>رابعاً:</b> مراحل العمل:</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p>1- التنسيق بين الطرفين لتحديد موعد تنفيذ الأعمال المذكورة في
+                                                        الجدول
+                                                        اعلام.</p>
+                                                    <p>2- يتم تنفيذ جميع الأعمال الفنية المذكورة في الجدول أعلاء في
+                                                        مراحل يتم
+                                                        الإتفاق عليها.</p>
+                                                    <br>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>خامساً:</b> تسليم التقارير:</td>
+                                            </tr>
+                                            <tr>
+                                                <td>يتم تسليم نتائج الأعمال بشكل تقارير خلال مدة 10 أيام عمل من بعد
+                                                    الإنتهاء من
+                                                    الأعمال الفنية.
+                                                    <br>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>سادساً:</b> النطاق الزمني للعقد:</td>
+                                            </tr>
+                                            <tr>
+                                                <td>مدة هذا العقد سنة ميلادية واحدة تبدأ من تاريخ العقد ، وتتجدد تلقائيا
+                                                    لمدة
+                                                    مماثلة في حال لم يشعر أحد الطرفين الآخر بموجب خطاب رسمى غبته
+                                                    بالتجديد قبل 30
+                                                    يوم من تاريخ انتهاء العقد
+                                                    <br>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>سابعاً:</b> النطاق المكاني للعقد:</td>
+                                            </tr>
+                                            <tr>
+                                                <td>تسري أحكام وبنود هذا العقد بين الطرفين ضمن المراكز المتفق عليه
+                                                    <br>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <br>
+                                    <div dir="rtl">
+                                        <p><b>ثامناً</b>: القيمة المالية للعقد وطريقة الدفعات</p>
+                                        <p>قيمة خدمات هذا العقد:</p>
+                                        <p>تكون القيمة الإجمالية لهذا العقد حسب المبلغ المذكور في الفاتورة الصادرة للطرف
+                                            الثاني.
+                                        </p>
+                                        <p>تدفع عن طريق كتابة شيك ، أو تودع في الحساب البنكي الخاص بالطرف الأول لدى بنك
+                                            الرياض
+                                            رقم الأيبان SA8520000002393677659940</p>
+                                        <p>أو بنك الانماء SA6405000068206555555000</p>
+                                        <p>على حسب الدفعات التالية:</p>
+                                        <br>
+                                        <div style="text-align:center">
+                                            <table style=" font-size: 105%; width: 50%;margin: auto" border=0 dir="rtl"
+                                                class=" snd-table-color-eee">
+                                                <thead>
+                                                    <tr>
+                                                        <th
+                                                            style="border-style: hidden; width: 20px;height: 23px;padding: 5px 0px; border-bottom: 0.25pt solid #000 !important; ">
+                                                            <div style="height: 30px; padding: 4px 0px;"
+                                                                class="border-head">
+                                                                النسبة </div>
+                                                        </th>
+                                                        <th
+                                                            style="border-style: hidden; width: 200px; height: 23px; padding: 5px 0px; border-bottom: 0.25pt solid #000 !important; ">
+                                                            <div style="height: 30px; padding: 4px 0px;"
+                                                                class="border-head">
+                                                                ملاحظات </div>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td
+                                                            style="padding: 2px 0px !important; color: #000;font-weight: 300;line-height: 27px;font-size: 14px;text-align: center;">
+                                                            yrtuety</td>
+                                                        <td
+                                                            style="padding: 2px 0px !important; color: #000;font-weight: 300;line-height: 27px;font-size: 14px;text-align: center;">
+                                                            heuub</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <br>
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                    <div class="break">
+                                       
+                                    <table width="100%" dir="rtl">
+                                        <tbody>
+                                            <tr>
+                                                <td><b>تاسعاً:</b> حقوق والتزامات الطرف الأول:</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p>1- يلتزم الطرف الأول بتنفيذ المشروع بمراحله في مدة زمنية لا تتعدى
+                                                        ثلاثة
+                                                        أشهر من تاريخ توقيع هذا العقد ، مالم يتم إيقاف العملية بسبب
+                                                        يتعلق بالطرف
+                                                        الثاني ، كعدم استكمال الوثائق أو غيره.</p>
+                                                    <p>2- يلتزم الطرف الأول بتزويد الطرف الثاني بتقرير النتائج للأعمال
+                                                        المذكورة
+                                                        سابقاً شريطة أن يكون التقرير لم يمر عليه أكثر من شهر واحد.</p>
+                                                    <p>3- اي تأخير قد يتسبب به الطرف الأول من تأخير أو عد استيفاء أوراق
+                                                        المعاملات يتم تعويضه في مدة العقد لصالح الطرف الثاني.</p>
+                                                    <p>4- الطرف الأول غير مسؤول عن أي عطل يطرأ على الأجهزة خلال فترة عمل
+                                                        الاختبارات والفحوصات والقياسات.</p>
+                                                    <br>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>عاشراً:</b> حقوق والتزامات الطرف الثاني:</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p>1- تجهيز البيئة والظروف المناسبة للبدء في عمليات المسح الإشعاعي
+                                                        وتوكيد
+                                                        الجودة.</p>
+                                                    <p>2- يلتزم الطرف الثاني بوجود الشخص الفني المؤهل والذي يعمل على
+                                                        الأجهزة
+                                                        المراد فحصها طيلة فترة عمل الاختبارات والفحوصات والقياسات لعمل
+                                                        وتجهيز ما
+                                                        يطلب منه قبل فريق عمل الطرف الأول.</p>
+                                                    <p>3- يجب على الطرف الثاني تزويد الطرف الأول بالأرقام التسلسلية
+                                                        وأرقام
+                                                        الهندسة الطبية إن وجدت للأجهزة وغيرها من البيانات المطلوبة
+                                                        المشار إليها
+                                                        قبل الشروع في الإجراءات.</p>
+                                                    <p>4- يلتزم الطرف الثاني بدفع المستحقات المالية في وقتها والمشار
+                                                        إليها
+                                                        سابقاً، ويحق للطرف الأول ايقاف التنفيذ أو تسليم التقارير في حال
+                                                        التأخير
+                                                        عن التسديد.</p>
+                                                    <br>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table width="100%" dir="rtl">
+                                        <tbody>
+                                            <tr>
+                                                <td><b>احد عشر:</b> تسوية الخلافات وجهات التقاضي:</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    أي خلاف أو نزاع ينشأ عن تنفيذ أو تفسير هذا العقد يتم حله ودياً وفق
+                                                    أنسب
+                                                    الحلول المواتية للطرفين، وفي حالة عدم التوصل إلى حل ودي يتم اللجوء
+                                                    إلى
+                                                    الجهات المختصة للتحكيم والنظر في هذا النزاع والبت فيه وفقاً لنظام
+                                                    التحكيم السعودي.
+                                                    <br>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    </div>
+                                  
+                                
+                              
+                               <div class="break">
+                              
+                                <table width="100%" dir="rtl">
+                                    <tbody>
+                                        <tr>
+                                            <td><b>اثنا عشر:</b> المراسلات ولغتها:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>1- جميع المراسلات بين الطرفين يجب أن تكون مكتوبة بإحدى اللغتين
+                                                    العربية أو الانجليزية حصراً وصادرة باسم وتوقيع الشخص المفوض
+                                                    بالتوقيع
+                                                    على هذا العقد حصراً، مصحوباً بالختم أو عبر الايميلات الرسمية
+                                                    المذكورة في هذا العقد الخاصة بكل طرف (المكالمات الهاتفية لا يؤخذ
+                                                    بها).</p>
+                                                <p>2- يلتزم طرفا العقد بالرد على أي استفسار خلال 48 ساعة عمل من
+                                                    تاريخ
+                                                    استلامه له.</p>
+                                                <p>3- يلتزم كل من الطرفين بإشعار الطرف الآخر في حال تغييره لأي من
+                                                    عناوينه أو بيانات التواصل الخاصة به خلال مدة أقصاها 3 أيام من
+                                                    تاريخ
+                                                    تغييرها.</p>
+                                                <br>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>ثلاثة عشر:</b> شروط عامة:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>1- يتكون هذا العقد من هذه الوثيقة الأساسية ومن عرض السعر المقدم
+                                                    من
+                                                    الطرف الأول والمشار إليه في المقدمة وفي حال تعارضهما فإن السيادة
+                                                    تكون لوثيقة العقد.</p>
+                                                <p>2- يجرى فحص الجودة والنوعية للأجهزة مرة واحدة سنوياً.</p>
+                                                <p>3- بعد كل عملية اصلاح وصيانة أو تغيير لمكان الجهاز يشترط اعادة
+                                                    الفحص.
+                                                </p>
+                                                <p>4- عند اعادة فحص الجهاز للمرة الثانية (بعد اصلاحه بواسطة الطرف
+                                                    الثاني) بسبب خلل في الجهاز يترتب عليه عدم تسليم شهادة جودة
+                                                    الجهاز
+                                                    والغرفة تحسب مجاناً خلال شهر من تاريخ تسليم التقرير بعد ذلك يدفع
+                                                    50
+                                                    %من قيمة فحص الجهاز في الفاتورة الصادرة. (ضمن مدينة الرياض وجدة
+                                                    والدمام حصراً).</p>
+                                                <p>5- لا يجوز تعديل أي بند من بنود هذا العقد إلا بموجب (ملحق عقد)
+                                                    مكتوب
+                                                    وموقع ومختوم من طرفي هذا العقد بشرط أن تكون مكملة له ولا تخل بأي
+                                                    بند
+                                                    من بنوده.</p>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>اربعة عشر:</b> سرية المعلومات:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                يلتزم طرفي العقد بسرية المعلومات المتوفرة لديه وبعدم الإفشاء بها في
+                                                أي
+                                                ظرف من الظروف، ويتحمل الطرف المخل بهذا الالتزام كافة التبعات
+                                                النظامية
+                                                المترتبة عليه.
+                                                <br>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>خمسة عشر:</b> العلم بمضمون العقد:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                يقر الطرفان أنهما قرءا العقد وفهماه فهماً صحيحاً نافياً للجهالة،
+                                                وأنهما
+                                                ملتزمان بما جاء فيه إلتزاماً تاماً.
+                                                <br>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>ستة عشر:</b> نسخ العقد:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                حرر هذا العقد من نسختين أصليتين، بيد كل طرف نسخة للعمل بها عند
+                                                الحاجة:
+                                                <br>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                    <table width="100%" dir="rtl">
+                                        <tr>
+                                            <td width="33%" style="text-align: center"><b>الطرف الاول</b></td>
+                                            <td width="33%"></td>
+                                            <td width="33%"><b>الطرف الثاني</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;"> {{doc.company}}</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">فلاح بن فهد المزروع</td>
+                                            <td></td>
+                                            <td>ممثل العقد \..................... </td>
+                                        </tr>
+                                    </table>
+                                    <table width="100%" dir="rtl">
+                                        <tbody>
+                                            <tr>
+                                                <td width="74">التوقيع:</td>
+                                                <td rowspan="2" width="428"><img src="PF Print assets/Sign.png"
+                                                        width="25%">
+                                                </td>
+                                                <td width="40%">التوقيع:</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="74">الختم:</td>
+                                                <td width="74">الختم:</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td colspan="2" width="601"><img src="PF Print assets/Stamp.png"
+                                                        width="23%"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>
+                            <!--place holder for the fixed-position footer-->
+                            <div class="page-footer-space"></div>
+                        </td>
+                    </tr>
+                   
+                </tfoot>
+            </table>
+        </div>
+
+
+
+
+
+
+        
+    </body>
+
+</html>
