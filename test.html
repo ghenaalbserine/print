@@ -5,14 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+<script  defer src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+
+
     <style>
-        body{
-            margin: 0 !important;
-            padding:  0 !important;
-        }
+       
         @page{
-             
+             size:A4;
              @bottom-right{
                  content: "رقم الصفحة :" counter(page) "/" counter(pages);
              }
@@ -20,9 +19,12 @@
          }
       .pagedjs_margin-content::after{
         display: block;
-        margin-top: -50px;
+        margin-top: -24px;
+    position: absolute;
+    right: 56px;
         z-index: 1000000000000000000;
       }
+      
 
         .page-header {
             padding-bottom: 0px !important;
@@ -60,12 +62,18 @@
   
         .page{
             page-break-after: always;
-            margin-top: -30px !important;
+           
         }
  
+  
 
         @media print {
-           
+        .pagedjs_page {
+        --pagedjs-pagebox-height: 290mm !important;
+        --pagedjs-margin-top: 1.5in !important;
+        --pagedjs-margin-bottom: 1.1in !important;
+      }
+      
             thead {
                 display: table-header-group;
             }
@@ -74,11 +82,15 @@
             }
             .page-header,
             .page-header-space {
-                height: auto;
+                height: 100px;
+                position: fixed;
+                top:10px;
+                /* margin-bottom: 20px; */
             }
             .page-footer,
             .page-footer-space {
-                height: auto;
+                height: 80px;
+                position: fixed;
             }
             .page-footer {
                 position: fixed;
@@ -107,10 +119,10 @@
             .edu-favorit-arabic-light {
                 text-align: right !important;
             }
-             /* .break{
+             .break{
             page-break-after: always;
             
-        } */
+        }
         /* .page{
 counter-reset: page;
 }
@@ -182,20 +194,20 @@ margin-top: -30px !important;
         </div>
         <!-- footer -->
         <div class="page-footer" style="text-align: center;width:100%">
-            <table class="pagenumber" width="40%">
+            <!-- <table class="pagenumber" width="40%">
                 <tbody>
                     <tr class="pagenumber">
                         <td width="33%"></td>
                     </tr>
                 </tbody>
-            </table>
+            </table> -->
             <div style="text-align: left; width:100%">
                 <img alt="SND Letter Head" height="" src="PF Print assets/Footer.png" style="width:100%">
             </div>
         </div>
         <!-- content -->
 
-        <div class="page" style="padding: 0px 40px;">
+        <div class="page" >
             <table  border=0 width=100%>
                 <thead>
                     <tr>
@@ -388,7 +400,7 @@ margin-top: -30px !important;
                                                     السينية
                                                     الرئيسي<br>General X- Ray Machine</td>
                                             </tr>
-                                         
+
                                             <tr>
                                                 <td
                                                     style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
@@ -571,8 +583,7 @@ margin-top: -30px !important;
                                     </div>
                                     <br>
                                     <br>
-                                    <br>
-                                    <br>
+                        
                                 <div class="break">
                                     <table width="100%" dir="rtl">
                                         <tbody>
@@ -684,10 +695,7 @@ margin-top: -30px !important;
                                     <br>
                                 </div>
                                 <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
+                              <br>
                                     <div class="break">
                                        
                                     <table width="100%" dir="rtl">
@@ -764,7 +772,7 @@ margin-top: -30px !important;
                                 
                               
                                <div class="break">
-                              
+                              <br><br>
                                 <table width="100%" dir="rtl">
                                     <tbody>
                                         <tr>
