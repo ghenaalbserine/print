@@ -1,30 +1,67 @@
 <html>
 
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<script  defer src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+    <script aria-hidden="true" src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
 
+    <!-- <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script> -->
+
+    <script>
+        // Repeat table headers
+        // from https://gitlab.pagedmedia.org/tools/pagedjs/issues/84
+        class TableHeaders extends Paged.Handler {
+            constructor(chunker, polisher, caller) {
+                super(chunker, polisher, caller);
+            }
+
+            afterPageLayout(pageElement, page, breakToken, chunker) {
+                // Find all split table elements
+                let tables = pageElement.querySelectorAll("table[data-split-from]");
+
+                tables.forEach((table) => {
+                    // Get the reference UUID of the node
+                    let ref = table.dataset.ref;
+                    // Find the node in the original source
+                    let sourceTable = chunker.source.querySelector("[data-ref='" + ref + "']");
+                    // Find if there is a header
+                    let header = sourceTable.querySelector("thead");
+                    if (header) {
+                        // Clone the header element
+                        let clonedHeader = header.cloneNode(true);
+                        // Insert the header at the start of the split table
+                        table.insertBefore(clonedHeader, table.firstChild);
+                    }
+                });
+
+            }
+        }
+
+        Paged.registerHandlers(TableHeaders);
+
+    </script>
 
     <style>
-       
-        @page{
-             size:A4;
-             @bottom-right{
-                 content: "رقم الصفحة :" counter(page) "/" counter(pages);
-             }
-             
-         }
-      .pagedjs_margin-content::after{
-        display: block;
-        margin-top: -24px;
-    position: absolute;
-    right: 56px;
-        z-index: 1000000000000000000;
-      }
-      
+        @page {
+            size: A4;
+
+            @bottom-right {
+                content: "رقم الصفحة :" counter(page) "/" counter(pages);
+
+            }
+        }
+
+
+        .pagedjs_margin-content::after {
+            display: block;
+            margin-top: -24px;
+            position: absolute;
+            right: 56px;
+            z-index: 1000000000000000000;
+        }
+
 
         .page-header {
             padding-bottom: 0px !important;
@@ -40,8 +77,8 @@
             font-weight: 900;
         }
 
-      
-       
+
+
         .snd-table-color-eee td {
             border: 2px solid #00001178;
             color: #a7a2a2;
@@ -49,7 +86,7 @@
 
         .border-head {
             background: #bdbdb8;
-            /* height: 46px; */
+            /* height: 40px; */
             padding: 25px 0px;
             text-align: center;
             border: 2px solid #00001178;
@@ -58,58 +95,59 @@
             border-radius: 7px;
             margin: -2px 0px 2px -3px;
             font-size: 14px;
+
         }
-  
-        .page{
-            page-break-after: always;
-           
+
+        .page {
+            page-break-before: always;
+
         }
- 
-  
+
+
 
         @media print {
-        .pagedjs_page {
-        --pagedjs-pagebox-height: 290mm !important;
-        --pagedjs-margin-top: 1.5in !important;
-        --pagedjs-margin-bottom: 1.1in !important;
-      }
-      
+            .pagedjs_page {
+                --pagedjs-pagebox-height: 290mm !important;
+                --pagedjs-margin-top: 1.5in !important;
+                --pagedjs-margin-bottom: 1.1in !important;
+            }
+        
             thead {
-                display: table-header-group;
+                display: table-header-group !important;
+
             }
             tfoot {
                 display: table-footer-group;
             }
+
             .page-header,
             .page-header-space {
                 height: 100px;
                 position: fixed;
-                top:10px;
+                top: 10px;
                 /* margin-bottom: 20px; */
             }
+
             .page-footer,
             .page-footer-space {
                 height: 80px;
                 position: fixed;
             }
+
             .page-footer {
                 position: fixed;
                 bottom: 0;
                 width: 100%;
-                
-                
+
+
             }
+
             .page-header {
                 position: fixed;
                 top: 0;
                 width: 100%;
             }
 
-            /* .page{
-                
-                page-break-after: always;
-            } */
-           
             .snd-table-color-eee td {
                 border: 0.25pt solid #0a0a0a !important;
                 color: #000;
@@ -119,65 +157,15 @@
             .edu-favorit-arabic-light {
                 text-align: right !important;
             }
-             .break{
-            page-break-after: always;
-            
+
+
         }
-        /* .page{
-counter-reset: page;
-}
-.page .pagenumber{
-  display:block;
-
-  }
-           .pagenumber::after {
-            position: relative;
-            top: 15px;
-            direction: rtl;
-            float: right;
-            padding: 0px 45px;
-            font-weight: 900;
-            counter-increment: page;
-            content: "رقم الصفحة : " counter(page) "/" counter(pages);
-        }
-
-        .pagenumber:after {
-            content: "رقم الصفحة : " counter(page) "/" counter(pages);
-            
-
-        } */
-   
-        
-        }
-
- /* .page{
-counter-reset: page ;
-margin-top: -30px !important;
-}
-.page .break{
-  display:block;
-
-  }
-  .page::after, .break::after{
-            position: relative;
-            bottom:0;
-            right:0;
-            width:100%;
-            direction: rtl;
-            float: right;
-            padding: 0px 45px;
-            font-weight: 900;
-            counter-increment: page;
-            content: "رقم الصفحة : " counter(page) ;
-} */
-
-        
     </style>
 
     <head>
 
     <body>
-        
+
         <!-- header -->
         <div class="page-header" style="text-align: center;width:100%">
             <div style="text-align: left;">
@@ -194,28 +182,20 @@ margin-top: -30px !important;
         </div>
         <!-- footer -->
         <div class="page-footer" style="text-align: center;width:100%">
-            <!-- <table class="pagenumber" width="40%">
-                <tbody>
-                    <tr class="pagenumber">
-                        <td width="33%"></td>
-                    </tr>
-                </tbody>
-            </table> -->
             <div style="text-align: left; width:100%">
                 <img alt="SND Letter Head" height="" src="PF Print assets/Footer.png" style="width:100%">
             </div>
         </div>
         <!-- content -->
-
-        <div class="page" >
-            <table  border=0 width=100%>
+        <div class="page">
+            <table border=0 width=100%>
                 <thead>
                     <tr>
                         <td style="border-style: hidden;"><br><br></td>
                     </tr>
                     <tr>
                         <td>
-                            <!--place holder for the fixed-position header-->
+                            <!-- place holder for the fixed-position header -->
                             <div class="page-header-space"><br></div>
                         </td>
                     </tr>
@@ -248,7 +228,7 @@ margin-top: -30px !important;
                                             <tbody>
                                                 <tr>
                                                     <td style="padding-right:12px !important"><b>الطرف الاول:
-                                                        شركة مجال الوقاية للاستشارات</b></td>
+                                                            شركة مجال الوقاية للاستشارات</b></td>
                                                 </tr>
                                                 <tr>
                                                     <td>سجل تجاري رقم: 1010562271 رقم العضوية الغرفة التجارية: 372651
@@ -327,9 +307,9 @@ margin-top: -30px !important;
                                                 </tr>
                                             </tbody>
                                         </table>
-                                  
-                                </div>
-                            
+
+                                    </div>
+
                                     <table width='100%' border=0 dir="rtl" style="position: relative; "
                                         class="snd-table-color-eee">
                                         <thead>
@@ -387,10 +367,10 @@ margin-top: -30px !important;
                                                     السينية
                                                     الرئيسي<br>General X- Ray Machine</td>
                                             </tr>
-                                        
+
                                             <tr>
-                                                
-                                                <td 
+
+                                                <td
                                                     style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
                                                     4</td>
                                                 <td>الفحص الفيزيائي للجودة والنوعية</td>
@@ -400,7 +380,6 @@ margin-top: -30px !important;
                                                     السينية
                                                     الرئيسي<br>General X- Ray Machine</td>
                                             </tr>
-
                                             <tr>
                                                 <td
                                                     style="padding: 0px !important; color: #000;font-weight: 300;line-height: 12px;font-size: 14px;text-align: center">
@@ -577,13 +556,13 @@ margin-top: -30px !important;
                                                     السينية
                                                     الرئيسي<br>General X- Ray Machine</td>
                                             </tr>
-                                        
+
                                         </tbody>
                                     </table>
-                                    </div>
-                                    <br>
-                                    <br>
-                        
+                                </div>
+                                <br>
+                                <br>
+
                                 <div class="break">
                                     <table width="100%" dir="rtl">
                                         <tbody>
@@ -695,9 +674,9 @@ margin-top: -30px !important;
                                     <br>
                                 </div>
                                 <br>
-                              <br>
-                                    <div class="break">
-                                       
+                                <br>
+                                <div class="break">
+
                                     <table width="100%" dir="rtl">
                                         <tbody>
                                             <tr>
@@ -767,101 +746,101 @@ margin-top: -30px !important;
                                             </tr>
                                         </tbody>
                                     </table>
-                                    </div>
-                                  
-                                
-                              
-                               <div class="break">
-                              <br><br>
-                                <table width="100%" dir="rtl">
-                                    <tbody>
-                                        <tr>
-                                            <td><b>اثنا عشر:</b> المراسلات ولغتها:</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>1- جميع المراسلات بين الطرفين يجب أن تكون مكتوبة بإحدى اللغتين
-                                                    العربية أو الانجليزية حصراً وصادرة باسم وتوقيع الشخص المفوض
-                                                    بالتوقيع
-                                                    على هذا العقد حصراً، مصحوباً بالختم أو عبر الايميلات الرسمية
-                                                    المذكورة في هذا العقد الخاصة بكل طرف (المكالمات الهاتفية لا يؤخذ
-                                                    بها).</p>
-                                                <p>2- يلتزم طرفا العقد بالرد على أي استفسار خلال 48 ساعة عمل من
-                                                    تاريخ
-                                                    استلامه له.</p>
-                                                <p>3- يلتزم كل من الطرفين بإشعار الطرف الآخر في حال تغييره لأي من
-                                                    عناوينه أو بيانات التواصل الخاصة به خلال مدة أقصاها 3 أيام من
-                                                    تاريخ
-                                                    تغييرها.</p>
-                                                <br>
-                                            </td>
-                                        </tr>
+                                </div>
 
-                                        <tr>
-                                            <td><b>ثلاثة عشر:</b> شروط عامة:</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p>1- يتكون هذا العقد من هذه الوثيقة الأساسية ومن عرض السعر المقدم
-                                                    من
-                                                    الطرف الأول والمشار إليه في المقدمة وفي حال تعارضهما فإن السيادة
-                                                    تكون لوثيقة العقد.</p>
-                                                <p>2- يجرى فحص الجودة والنوعية للأجهزة مرة واحدة سنوياً.</p>
-                                                <p>3- بعد كل عملية اصلاح وصيانة أو تغيير لمكان الجهاز يشترط اعادة
-                                                    الفحص.
-                                                </p>
-                                                <p>4- عند اعادة فحص الجهاز للمرة الثانية (بعد اصلاحه بواسطة الطرف
-                                                    الثاني) بسبب خلل في الجهاز يترتب عليه عدم تسليم شهادة جودة
-                                                    الجهاز
-                                                    والغرفة تحسب مجاناً خلال شهر من تاريخ تسليم التقرير بعد ذلك يدفع
-                                                    50
-                                                    %من قيمة فحص الجهاز في الفاتورة الصادرة. (ضمن مدينة الرياض وجدة
-                                                    والدمام حصراً).</p>
-                                                <p>5- لا يجوز تعديل أي بند من بنود هذا العقد إلا بموجب (ملحق عقد)
-                                                    مكتوب
-                                                    وموقع ومختوم من طرفي هذا العقد بشرط أن تكون مكملة له ولا تخل بأي
-                                                    بند
-                                                    من بنوده.</p>
-                                        </tr>
 
-                                        <tr>
-                                            <td><b>اربعة عشر:</b> سرية المعلومات:</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                يلتزم طرفي العقد بسرية المعلومات المتوفرة لديه وبعدم الإفشاء بها في
-                                                أي
-                                                ظرف من الظروف، ويتحمل الطرف المخل بهذا الالتزام كافة التبعات
-                                                النظامية
-                                                المترتبة عليه.
-                                                <br>
-                                            </td>
-                                        </tr>
 
-                                        <tr>
-                                            <td><b>خمسة عشر:</b> العلم بمضمون العقد:</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                يقر الطرفان أنهما قرءا العقد وفهماه فهماً صحيحاً نافياً للجهالة،
-                                                وأنهما
-                                                ملتزمان بما جاء فيه إلتزاماً تاماً.
-                                                <br>
-                                            </td>
-                                        </tr>
+                                <div class="break">
+                                    <br><br>
+                                    <table width="100%" dir="rtl">
+                                        <tbody>
+                                            <tr>
+                                                <td><b>اثنا عشر:</b> المراسلات ولغتها:</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p>1- جميع المراسلات بين الطرفين يجب أن تكون مكتوبة بإحدى اللغتين
+                                                        العربية أو الانجليزية حصراً وصادرة باسم وتوقيع الشخص المفوض
+                                                        بالتوقيع
+                                                        على هذا العقد حصراً، مصحوباً بالختم أو عبر الايميلات الرسمية
+                                                        المذكورة في هذا العقد الخاصة بكل طرف (المكالمات الهاتفية لا يؤخذ
+                                                        بها).</p>
+                                                    <p>2- يلتزم طرفا العقد بالرد على أي استفسار خلال 48 ساعة عمل من
+                                                        تاريخ
+                                                        استلامه له.</p>
+                                                    <p>3- يلتزم كل من الطرفين بإشعار الطرف الآخر في حال تغييره لأي من
+                                                        عناوينه أو بيانات التواصل الخاصة به خلال مدة أقصاها 3 أيام من
+                                                        تاريخ
+                                                        تغييرها.</p>
+                                                    <br>
+                                                </td>
+                                            </tr>
 
-                                        <tr>
-                                            <td><b>ستة عشر:</b> نسخ العقد:</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                حرر هذا العقد من نسختين أصليتين، بيد كل طرف نسخة للعمل بها عند
-                                                الحاجة:
-                                                <br>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                            <tr>
+                                                <td><b>ثلاثة عشر:</b> شروط عامة:</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p>1- يتكون هذا العقد من هذه الوثيقة الأساسية ومن عرض السعر المقدم
+                                                        من
+                                                        الطرف الأول والمشار إليه في المقدمة وفي حال تعارضهما فإن السيادة
+                                                        تكون لوثيقة العقد.</p>
+                                                    <p>2- يجرى فحص الجودة والنوعية للأجهزة مرة واحدة سنوياً.</p>
+                                                    <p>3- بعد كل عملية اصلاح وصيانة أو تغيير لمكان الجهاز يشترط اعادة
+                                                        الفحص.
+                                                    </p>
+                                                    <p>4- عند اعادة فحص الجهاز للمرة الثانية (بعد اصلاحه بواسطة الطرف
+                                                        الثاني) بسبب خلل في الجهاز يترتب عليه عدم تسليم شهادة جودة
+                                                        الجهاز
+                                                        والغرفة تحسب مجاناً خلال شهر من تاريخ تسليم التقرير بعد ذلك يدفع
+                                                        50
+                                                        %من قيمة فحص الجهاز في الفاتورة الصادرة. (ضمن مدينة الرياض وجدة
+                                                        والدمام حصراً).</p>
+                                                    <p>5- لا يجوز تعديل أي بند من بنود هذا العقد إلا بموجب (ملحق عقد)
+                                                        مكتوب
+                                                        وموقع ومختوم من طرفي هذا العقد بشرط أن تكون مكملة له ولا تخل بأي
+                                                        بند
+                                                        من بنوده.</p>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>اربعة عشر:</b> سرية المعلومات:</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    يلتزم طرفي العقد بسرية المعلومات المتوفرة لديه وبعدم الإفشاء بها في
+                                                    أي
+                                                    ظرف من الظروف، ويتحمل الطرف المخل بهذا الالتزام كافة التبعات
+                                                    النظامية
+                                                    المترتبة عليه.
+                                                    <br>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>خمسة عشر:</b> العلم بمضمون العقد:</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    يقر الطرفان أنهما قرءا العقد وفهماه فهماً صحيحاً نافياً للجهالة،
+                                                    وأنهما
+                                                    ملتزمان بما جاء فيه إلتزاماً تاماً.
+                                                    <br>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>ستة عشر:</b> نسخ العقد:</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    حرر هذا العقد من نسختين أصليتين، بيد كل طرف نسخة للعمل بها عند
+                                                    الحاجة:
+                                                    <br>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                     <table width="100%" dir="rtl">
                                         <tr>
                                             <td width="33%" style="text-align: center"><b>الطرف الاول</b></td>
@@ -912,17 +891,11 @@ margin-top: -30px !important;
                             <div class="page-footer-space"></div>
                         </td>
                     </tr>
-                   
+
                 </tfoot>
+
             </table>
         </div>
-
-
-
-
-
-
-        
     </body>
 
 </html>
